@@ -10,7 +10,7 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
     heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     logo: Schema.Attribute.Component<'elements.logo', false>;
-    theme: Schema.Attribute.Enumeration<['turquiose', 'orange']>;
+    theme: Schema.Attribute.Enumeration<['turquoise', 'orange']>;
   };
 }
 
@@ -25,7 +25,7 @@ export interface BlocksInfoBlock extends Struct.ComponentSchema {
     headline: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     reversed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    theme: Schema.Attribute.Enumeration<['turquiose', 'orange']>;
+    theme: Schema.Attribute.Enumeration<['turquoise', 'orange']>;
   };
 }
 

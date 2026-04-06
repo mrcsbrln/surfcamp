@@ -30,7 +30,7 @@
     "theme": {
       "type": "enumeration",
       "enum": [
-        "turquiose",
+        "turquoise",
         "orange"
       ]
     }
