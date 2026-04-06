@@ -127,17 +127,6 @@ const globalSettingQuery = qs.stringify({
         policies: true,
       },
     },
-    "blocks.featured-article": {
-      populate: {
-        image: {
-          fields: ["url", "alternativeText"],
-        },
-        link: true,
-      },
-    },
-    "blocks.subscribe": {
-      populate: true,
-    },
   },
 });
 
