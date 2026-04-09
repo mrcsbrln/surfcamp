@@ -12,8 +12,8 @@ interface ContentListProps {
   showSearch?: boolean;
 }
 
-async function loader(path: string, featured?: boolean) {
-  const { data, meta } = await getContent(path, featured);
+async function loader(path: string, featured?: boolean, query?: string) {
+  const { data, meta } = await getContent(path, featured, query);
   return {
     articles: (data as ArticleProps[]) || [],
   };
@@ -26,8 +26,9 @@ export async function ContentList({
   component,
   headlineAlignment,
   showSearch,
+  query,
 }: Readonly<ContentListProps>) {
-  const { articles } = await loader(path, featured);
+  const { articles } = await loader(path, featured, query);
   const Component = component;
   return (
     <section className="content-items container">
