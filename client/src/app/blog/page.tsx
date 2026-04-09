@@ -23,6 +23,7 @@ export default async function BlogRoute() {
         headline="Ceckout out our latest articles"
         path="/api/articles"
         component={BlogCard}
+        showSearch
       />
     </div>
   );
