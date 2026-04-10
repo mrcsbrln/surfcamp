@@ -26,6 +26,8 @@ export default async function BlogRoute({ searchParams }: PageProps) {
         component={BlogCard}
         showSearch
         query={query}
+        showPagination
+        page={page}
       />
     </div>
   );
