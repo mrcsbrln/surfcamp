@@ -13,6 +13,9 @@
 
       & .content-items__card {
         grid-column: span 3;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
       }
     }
   }
