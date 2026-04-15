@@ -4,6 +4,7 @@ import { Card, type CardProps } from "@/components/Card";
 import { getContentBySlug } from "@/data/loaders";
 import { EventProps } from "@/types";
 import { notFound } from "next/navigation";
+import { EventSignupForm } from "@/components/EventsSignupForm";
 
 async function loader(slug: string) {
   const { data } = await getContentBySlug(slug, "/api/events");
@@ -25,13 +26,14 @@ export default async function AllEventsRoute({
   params,
   searchParams,
 }: ParamsProps) {
-  const slug = (await params).slug;
   const { query, page } = await searchParams;
-  const { event, blocks } = await loader(slug);
+  const { event, blocks } = await loader("stay-in-touch");
 
   return (
     <div className="container">
-      <div className="event-page">Sign up for will go here</div>
+      <div className="event-page">
+        <EventSignupForm blocks={blocks} eventId={event.documentId} />
+      </div>
       <ContentList
         headline="All Events"
         path="/api/events"

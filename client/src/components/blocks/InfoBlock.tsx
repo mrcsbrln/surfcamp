@@ -12,6 +12,8 @@ export function InfoBlock({
   content,
   cta,
 }: Readonly<InfoBlockProps>) {
+  if (!image) return null;
+
   return (
     <section className={`info info--${theme} ${reversed && "info--reversed"}`}>
       <StrapiImage
