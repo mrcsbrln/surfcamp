@@ -487,7 +487,7 @@ export interface ApiEventSignupEventSignup extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     email: Schema.Attribute.Email;
-    events: Schema.Attribute.Relation<'oneToMany', 'api::event.event'>;
+    event: Schema.Attribute.Relation<'manyToOne', 'api::event.event'>;
     firstName: Schema.Attribute.String;
     lastName: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

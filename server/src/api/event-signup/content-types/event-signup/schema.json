@@ -23,9 +23,9 @@
     "telephone": {
       "type": "string"
     },
-    "events": {
+    "event": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::event.event"
     }
   }
