@@ -1,16 +1,46 @@
 @use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+@keyframes menuSlideDown {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0% 0);
+  }
+}
+
+@keyframes menuSlideUp {
+  from {
+    clip-path: inset(0 0 0% 0);
+  }
+  to {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+.header__hamburger {
+  display: none;
+}
+
+.header__mobile-nav {
+  display: none;
+}
 
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem 4.8rem;
   z-index: 10;
-  background-color: $light-beige;
+  background-color: transparent;
 
   &--light {
     color: white;
-    background-color: $orange;
   }
 
   &--white {
@@ -44,6 +74,82 @@
 
     & li:not(:last-of-type) {
       margin-right: 4.6rem;
+    }
+  }
+
+  @include respond(phone) {
+    flex-wrap: wrap;
+    padding: 1.5rem 2rem;
+    transition:
+      background-color 0.35s ease,
+      border-radius 0.35s ease;
+
+    &--open {
+      background-color: $light-beige;
+      color: black;
+      border-radius: 0 0 2.4rem 2.4rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+
+      .header__hamburger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .header__hamburger span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      .header__hamburger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+
+    &__nav,
+    &__cta {
+      display: none;
+    }
+
+    &__hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: inherit;
+
+      span {
+        display: block;
+        width: 2.5rem;
+        height: 0.25rem;
+        background: currentColor;
+        border-radius: 2px;
+        transition:
+          transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+          opacity 0.25s ease;
+        transform-origin: center;
+      }
+    }
+
+    &__mobile-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+      padding: 1.5rem 0 2.5rem;
+      animation: menuSlideDown 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+      &--closing {
+        animation: menuSlideUp 0.32s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
     }
   }
 }

@@ -1,3 +1,5 @@
+@use "../base/mixins" as *;
+
 .blog-preview {
   display: flex;
   flex-direction: column;
@@ -46,5 +48,24 @@
 
   &__title {
     margin: 2.4rem 0 1rem;
+  }
+
+  @include respond(phone) {
+    padding: 0 2rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+
+    &__headline {
+      margin-bottom: 4rem;
+    }
+
+    &__item {
+      &:nth-of-type(1),
+      &:nth-of-type(2),
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        width: 100%;
+      }
+    }
   }
 }

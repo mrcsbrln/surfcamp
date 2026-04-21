@@ -1,3 +1,5 @@
+@use "../base/mixins" as *;
+
 .hero {
   position: relative;
   width: 100%;
@@ -32,7 +34,7 @@
     }
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -57,7 +59,6 @@
     margin-top: 1rem;
     color: white;
     font-size: 1.8rem;
-
   }
   &__author {
     font-weight: 700;
@@ -68,8 +69,6 @@
     font-weight: 400;
   }
 
-  
-
   &__logo {
     position: absolute;
     bottom: 0;
@@ -79,6 +78,16 @@
     &--orange {
       filter: invert(62%) sepia(21%) saturate(1646%) hue-rotate(348deg)
         brightness(88%) contrast(81%);
+    }
+  }
+
+  @include respond(phone) {
+    min-height: 50rem;
+    padding: 10rem 2rem 0;
+    margin-bottom: 8rem;
+
+    &__headline {
+      max-width: 100%;
     }
   }
 }

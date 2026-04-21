@@ -1,3 +1,5 @@
+@use "../../base/mixins" as *;
+
 .signup-form {
   display: flex;
   justify-content: space-between;
@@ -77,6 +79,27 @@
 
     & span {
       font-weight: 700;
+    }
+  }
+
+  @include respond(phone) {
+    flex-direction: column;
+    gap: 4rem;
+
+    &__info {
+      width: 100%;
+    }
+
+    &__form {
+      width: 100%;
+    }
+
+    &__name-container {
+      flex-direction: column;
+
+      & .input__container {
+        width: 100%;
+      }
     }
   }
 }

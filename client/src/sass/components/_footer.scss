@@ -1,3 +1,5 @@
+@use "../base/mixins" as *;
+
 .footer {
   background-color: black;
   color: white;
@@ -20,11 +22,13 @@
     width: 5rem;
 
     &--black {
-      filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(25deg) brightness(102%) contrast(101%);
+      filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(25deg)
+        brightness(102%) contrast(101%);
     }
 
     &--white {
-      filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(25deg) brightness(102%) contrast(101%);
+      filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(25deg)
+        brightness(102%) contrast(101%);
     }
   }
 
@@ -48,6 +52,40 @@
 
     & li:not(:last-of-type) {
       margin-right: 3.5rem;
+    }
+  }
+
+  @include respond(phone) {
+    padding: 4rem 2rem 3rem;
+
+    &__nav {
+      flex-direction: column;
+      gap: 2rem;
+      padding-right: 0;
+      align-items: flex-start;
+    }
+
+    &__links {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+
+      & li:not(:last-of-type) {
+        margin-right: 0;
+      }
+    }
+
+    &__policies {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    &__policies-nav {
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      & li:not(:last-of-type) {
+        margin-right: 0;
+      }
     }
   }
 }
