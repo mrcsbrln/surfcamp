@@ -25,7 +25,11 @@ export function HeroSection({
         {darken && <div className="hero__background__overlay"></div>}
       </div>
       <div className={`hero__heading hero__heading--${theme}`}>
-        <h1>{heading}</h1>
+        <h1>
+          {heading.split(" ").map((word, i) => (
+            <span key={i}>{word}</span>
+          ))}
+        </h1>
         {author && <p className="hero__author">{author}</p>}
         {publishedAt && <p className="hero__published-at">{publishedAt}</p>}
       </div>
