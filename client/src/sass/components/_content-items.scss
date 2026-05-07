@@ -27,6 +27,7 @@
 
   @include respond(phone) {
     margin-bottom: 6rem;
+    padding: 0 2rem;
 
     &__container {
       &--card {

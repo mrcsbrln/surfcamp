@@ -76,6 +76,7 @@ export default async function SingleBlogRoute({ params }: PageProps) {
         author={author}
         publishedAt={formatDate(publishedAt)}
         darken={true}
+        splitWords={false}
       />
       <div className="container">
         <ArticleOverview

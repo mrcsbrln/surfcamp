@@ -88,6 +88,7 @@ export interface HeroSectionProps extends Base<"blocks.hero-section"> {
   logo?: LogoProps;
   author?: string;
   darken?: boolean;
+  splitWords?: boolean;
 }
 
 export interface InfoBlockProps extends Base<"blocks.info-block"> {

@@ -11,6 +11,7 @@ export function HeroSection({
   author,
   publishedAt,
   darken = false,
+  splitWords = true,
 }: Readonly<HeroSectionProps>) {
   return (
     <section className="hero">
@@ -26,9 +27,9 @@ export function HeroSection({
       </div>
       <div className={`hero__heading hero__heading--${theme}`}>
         <h1>
-          {heading.split(" ").map((word, i) => (
-            <span key={i}>{word}</span>
-          ))}
+          {splitWords
+            ? heading.split(" ").map((word, i) => <span key={i}>{word}</span>)
+            : heading}
         </h1>
         {author && <p className="hero__author">{author}</p>}
         {publishedAt && <p className="hero__published-at">{publishedAt}</p>}
